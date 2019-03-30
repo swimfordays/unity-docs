@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body {
+            display: inline-flex;
+        }
+
+        .bottom-note {
+            text-align: center;
+        }
+
+        .left {
+            float: left;
+            text-align: left;
+            left: 0;
+            width: 65%;
+        }
+
+        .right {
+            float: right;
+            text-align: left;
+            right: 0;
+            width: 35%
+        }
+
+        .right button {
+            text-align: center;
+            float: right;
+        }
+
+        .dts-table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .phone-table, .prefix-table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 11px;
+            width: 100%;
+        }
+        
+
+        .phone-table th, .prefix-table th {
+            font-size: 10px;
+        }
+
+        .dts-table td, .dts-table th {
+            border: 1px solid #dddddd;
+            padding: 8px;
+        }
+
+        .phone-table td, .dts-table th, .prefix-table td {
+            border: 1px solid #dddddd;
+            padding: 4px;
+        }
+
+        .remote-table th {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    <title>DTS Zones & Contacts</title>
+</head>
+
+<body>
+    <div class='left'>
+        <table class='dts-table'>
+            <tr>
+                <th>DTS Zone</th>
+                <th>Facilities Supported</th>
+            </tr>
+            <tr>
+                <td>Zone 1</td>
+                <td>Presbyterian Downtown (Cedar and Lead), Albuquerque Ambulance (AAS), Kaseman, El Camino, MD Anderson
+                    Radiation Treatment Center (KH), Los Lunas, The Solutions Group (Pennsylvania), Rio Bravo/Isleta,
+                    101 Mountain (Storage Facility), PAC and Home Health Users</td>
+            </tr>
+            <tr>
+                <td>Zone 2</td>
+                <td>Aquatics Center, Cooper Center, Northside(Pan American), Healthplex, Carmel, Montgomery, Radiology
+                    Associates of Albuquerque (RAA), San Mateo, Wyoming, and Out-of-State Remote Users</td>
+            </tr>
+            <tr>
+                <td>Zone 3</td>
+                <td>Rio Rancho 528, Atrisco, Rio Rancho High Resort, Intel, Alameda, Rust Medical Center, MD Anderson
+                    Radiation Treatment Center (RMC), Rio Rancho Southern, and Paradise</td>
+            </tr>
+            <tr>
+                <td>PRMC / DCT</td>
+                <td>Plains Regional Medical Center (Clovis), Dan C. Trigg (Tucumcari), and Logan</td>
+            </tr>
+            <tr>
+                <td>LCMC</td>
+                <td>Lincoln County Medical Center (Ruidoso), Carrizozo, Capitan, Corona, and White Mountain Medical
+                    Center</td>
+            </tr>
+            <tr>
+                <td>SGH</td>
+                <td>Socorro & Belen PMG</td>
+            </tr>
+            <tr>
+                <td>SFMC</td>
+                <td>Santa Fe Med Ctr & St. Michael's PMG</td>
+            </tr>
+            <tr>
+                <td>EGH</td>
+                <td>Espanola General Hospital</td>
+            </tr>
+        </table>
+        <h3 style='text-align: center;'>Remote User Routing Instructions:</h3>
+        <table class='remote-table'> 
+            <tr>
+                <th>Remote User:</th>
+                <td><p style='font-style: italic;'> Send remote-user tickets to the zone that corresponds to the user's preferred facility. (ASK!)</p></td>
+            </tr>
+            <tr><th></th></tr>
+            <tr>
+                <th>Home Health User:</th>
+                <td><p style="font-style: italic;"> Route all Home Health & Hospice incidents to DTS ZONE 1.</p></td>
+            </tr>
+        </table>
+        <div class='bottom-note'>
+            <h1> -ALWAYS- </h1> <h2>Refer to On-Call Schedule for support team assignment guidelines, contact info.</h2>
+        </div>
+    </div>
+    <div class='right'>
+        <button id='listButton' onclick="listChange()">Click for Common Prefixes</button>
+        <table class='prefix-table hide' id='prefix-table'>
+            <tr>
+                <th>Facility Name</th>
+                <th>CA Abbreviation</th>
+                <th>Phone Prefix</th>
+            </tr>
+            <tr>
+                <td>101 Mountain</td>
+                <td>101 Mount</td>
+                <td>841, 724, 563</td>
+            </tr>
+            <tr>
+                <td>ABQ Ambulance</td>
+                <td>AAS</td>
+                <td>449</td>
+            </tr>
+            <tr>
+                <td>Atrisco PMG</td>
+                <td>AT</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>Belen PMG</td>
+                <td>BE</td>
+                <td>864</td>
+            </tr>
+            <tr>
+                <td>Carmel</td>
+                <td>CAR</td>
+                <td>253</td>
+            </tr>
+            <tr>
+                <td>Capitan PMG</td>
+                <td>CAP</td>
+                <td>354</td>
+            </tr>
+            <tr>
+                <td>Carrizozo PMG</td>
+                <td>CZ</td>
+                <td>648</td>
+            </tr>
+            <tr>
+                <td>Cedar POB/PMG</td>
+                <td>CEDAR</td>
+                <td>841, 724, 563</td>
+            </tr>
+            <tr>
+                <td>Clovis (Plains Regional)</td>
+                <td>PRMC</td>
+                <td>769</td>
+            </tr>
+            <tr>
+                <td>Cooper Center</td>
+                <td>CC</td>
+                <td>923</td>
+            </tr>
+            <tr>
+                <td>Corona</td>
+                <td>COR</td>
+                <td>849</td>
+            </tr>
+            <tr>
+                <td>El Camino (KH)</td>
+                <td>EL CAMINO</td>
+                <td>559, 291</td>
+            </tr>
+            <tr>
+                <td>Espanola</td>
+                <td>PEH</td>
+                <td>753, 367</td>
+            </tr>
+            <tr>
+                <td>HealthPlex (NS)</td>
+                <td>NS</td>
+                <td>823</td>
+            </tr>
+            <tr>
+                <td>Intel</td>
+                <td>INTEL</td>
+                <td>253</td>
+            </tr>
+            <tr>
+                <td>Kaseman</td>
+                <td>KH</td>
+                <td>559, 291</td>
+            </tr>
+            <tr>
+                <td>Lead PMG</td>
+                <td>LEAD</td>
+                <td>224</td>
+            </tr>
+            <tr>
+                <td>Logan</td>
+                <td>LG</td>
+                <td>487</td>
+            </tr>
+            <tr>
+                <td>Los Lunas PMG</td>
+                <td>LL</td>
+                <td>866</td>
+            </tr>
+            <tr>
+                <td>Montgomery PMG</td>
+                <td>MONT</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>Northside PMG</td>
+                <td>NS</td>
+                <td>823</td>
+            </tr>
+            <tr>
+                <td>Paradise PMG</td>
+                <td>PD</td>
+                <td>998</td>
+            </tr>
+            <tr>
+                <td>Downtown / Main</td>
+                <td>PH</td>
+                <td>724, 841, 563</td>
+            </tr>
+            <tr>
+                <td>Rio Bravo / Isleta</td>
+                <td>ISLETA</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>Rio Rancho 528</td>
+                <td>RR528</td>
+                <td>404</td>
+            </tr>
+            <tr>
+                <td>RR High Resort</td>
+                <td>HR4005 or 4100</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>RR Southern</td>
+                <td>RRS</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>Ruidoso</td>
+                <td>LCMC</td>
+                <td>257, 630</td>
+            </tr>
+            <tr>
+                <td>Rust Medical Ctr</td>
+                <td>RMC</td>
+                <td>253</td>
+            </tr>
+            <tr>
+                <td>San Mateo PMG</td>
+                <td>SM</td>
+                <td>462</td>
+            </tr>
+            <tr>
+                <td>Santa Fe Mededical Ctr</td>
+                <td>SFMC</td>
+                <td>772</td>
+            </tr>
+            <tr>
+                <td>Socorro</td>
+                <td>SGH</td>
+                <td>835</td>
+            </tr>
+            <tr>
+                <td>St. Michael's</td>
+                <td>SF</td>
+                <td>303</td>
+            </tr>
+            <tr>
+                <td>The Solutions Group</td>
+                <td>TSG</td>
+                <td>254</td>
+            </tr>
+            <tr>
+                <td>Dan C. Trigg (Tucumcari)</td>
+                <td>DCT</td>
+                <td>461</td>
+            </tr>
+            <tr>
+                <td>Wyoming PMG</td>
+                <td>WY</td>
+                <td>462</td>
+            </tr>
+        </table>
+        <table class='phone-table' id='phone-table'>
+            <tr>
+                <th>IT / Techical Contacts</th>
+                <th>Phone #</th>
+            </tr>
+            <tr>
+                <td>IT Service Desk - Normal Line</td>
+                <td>1-505-923-6825</td>
+            </tr>
+            <tr>
+                <td>IT Service Desk - Long Distance</td>
+                <td>1-866-640-7205</td>
+            </tr>
+            <tr>
+                <td>Tech Backline (DO NOT give to users)</td>
+                <td>1-505-923-6250</td>
+            </tr>
+            <tr>
+                <td>SD Manager - Kellie Carroll-Juarez</td>
+                <td>Cell: 505-340-5351<br>Desk: 505-944-2776</td>
+            </tr>
+            <tr>
+                <td>SD Tier II - Joseph Vallejos</td>
+                <td>Cell: 505-544-3023<br>Desk: 505-944-2759</td>
+            </tr>
+            <tr>
+                <td>SD Tier II - Patrick Buffington</td>
+                <td>Cell: 505-980-3930<br>Desk: 505-944-2769</td>
+            </tr>
+            <tr>
+                <td>SD Tier II - Ryan Hill</td>
+                <td>Cell: 505-588-8114<br>Desk: 505-944-2773</td>
+            </tr>
+            <tr>
+                <td>SD Tier II - Lee Goff</td>
+                <td>Cell: 720-325-5122<br>Desk: 505-944-2785</td>
+            </tr>
+            <tr>
+                <th>ECC / Clinical Contacts</th>
+                <th>Phone #</th>
+            </tr>
+            <tr>
+                <td>ECC Service Desk - Normal Line</td>
+                <td>1-505-923-7111</td>
+            </tr>
+            <tr>
+                <td>ECC Tier II - Juan Kurtz</td>
+                <td>Cell: 505-515-6354<br>Desk: 505-944-2775</td>
+            </tr>
+            <tr>
+                <td>ECC Tier II - Heather Heslop</td>
+                <td>Cell: 505-363-0370<br>Desk: 505-944-2790</td>
+            </tr>
+            <tr>
+                <th>MyChart / Patient Contacts</th>
+                <th>Phone #</th>
+            </tr>
+            <tr>
+                <td>MyChart Support - Normal Line</td>
+                <td>1-505-923-5590</td>
+            </tr>
+            <tr>
+                <td>PT Manager - Stephanie Harris</td>
+                <td>Cell: 505-620-2403<br>Desk: 505-944-2939</td>
+            </tr>
+            <tr>
+                <td>PT Tier II - Juan Galindo</td>
+                <td>Cell: 505-639-9538</td>
+            </tr>
+            <tr>
+                <td>Member Services & Premium Billing</td>
+                <td>1-505-923-5678</td>
+            </tr>
+            <tr>
+                <td>Patient Billing</td>
+                <td>1-505-923-6600</td>
+            </tr>
+            <tr>
+                <td>Provider Services</td>
+                <td>1-505-923-5757</td>
+            </tr>
+            <tr>    
+                <td>Video Visit / MeMD</td>
+                <td>1-844-733-7737</td>
+            </tr>
+            <tr>
+                <td>Wellness at Work - Normal Line</td>
+                <td>1-505-923-6030</td>
+            </tr>
+            <tr>
+                <td>Wellness at Work - Long Distance</td>
+                <td>1-855-460-7737</td>
+            </tr>
+            <tr>
+                <td>Medical Records</td>
+                <td>1-505-559-6683</td>
+            </tr>
+            <tr>
+                <td>Customer Complaint Line</td>
+                <td>1-505-923-5256</td>
+            </tr>
+            <tr>
+                <th>Other Contacts</th>
+                <th>Phone #</th>
+            </tr>
+            <tr>
+                <td>T-Systems North America (TSNA) Service Desk</td>
+                <td>1-866-532-0672</td>
+            </tr>
+            <tr>
+                <td>BioMed / Facilities / Maintenance</td>
+                <td>1-505-724-7770</td>
+            </tr>
+            <tr>
+                <td>BioMed On-Call (Not to be given out to users)</td>
+                <td>1-505-841-1865</td>
+            </tr>
+            <tr>
+                <td>Ricoh</td>
+                <td>Business Hrs: 505-724-7720<br>After Hrs: 888-456-6457</td>
+            </tr>
+            <tr>
+                <td>Human Resources / Applicants</td>
+                <td>Local: 505-923-8750<br>Long Distance: 800-432-4600</td>
+            </tr>
+            <tr>
+                <td>Medical Staff Affairs (MSA)</td>
+                <td>1-505-841-1430</td>
+            </tr>
+            <tr>
+                <td>Payroll</td>
+                <td>1-505-923-6334</td>
+            </tr>
+            <tr>
+                <td>Sales Call Line</td>
+                <td>1-505-841-6363</td>
+            </tr>
+            <tr>
+                <td>NS Healthplex</td>
+                <td>1-505-823-8399</td>
+            </tr>
+            <tr>
+                <td>CC Security</td>
+                <td>1-505-975-7884</td>
+            </tr>
+            <tr>
+                <td>PH Security</td>
+                <td>1-505-841-1200</td>
+            </tr>
+            <tr>
+                <td>UnityBPO Service Desk</td>
+                <td>1-866-538-6489</td>
+            </tr>
+            <tr>
+                <td>Citrix Tech Support</td>
+                <td>1-800-424-8749</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    const listChange = () => {
+        if (document.getElementById('prefix-table').classList == 'prefix-table hide') {
+            document.getElementById('prefix-table').classList = 'prefix-table';
+            document.getElementById('phone-table').classList = 'phone-table hide';
+            document.getElementById('listButton').innerHTML = 'Click for Phone Number Directory'
+        } else {
+            document.getElementById('phone-table').classList = 'phone-table';
+            document.getElementById('prefix-table').classList = 'prefix-table hide';
+            document.getElementById('listButton').innerHTML = 'Click for Common Prefixes'
+        }
+    }
+</script>
+</html>
